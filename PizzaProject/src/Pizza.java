@@ -4,6 +4,7 @@ public class Pizza {
 
     String[] toppingsList = Constants.TOPPINGSLIST;
     SpecialtyPizzas specialtyPizzas;
+    int quantity;
 
 
     public static class SpecialtyPizzas{
