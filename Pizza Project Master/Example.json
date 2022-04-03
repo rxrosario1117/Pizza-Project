@@ -1,0 +1,84 @@
+[
+  {
+    "customer": {
+      "address": {
+        "streetAddress": "3070 west",
+        "city": "Powder Springs",
+        "state": "GA",
+        "zipCode": "30127"
+      },
+      "firstName": "Ray",
+      "lastName": "Rosario",
+      "phoneNumber": "848488555",
+      "creditCard": {
+        "nameOnCard": "Ray Rosario",
+        "cardNumber": "123456789",
+        "securityCode": "123",
+        "expirationDate": "02/22"
+      }
+    },
+    "customerPhoneNumber": "848488555",
+    "pizza": {
+      "size": "Large",
+      "quantity": 1,
+      "toppings": []
+    },
+    "side": {
+      "wings": false,
+      "breadsticks": false,
+      "garlicKnots": true,
+      "bonelessWings": false
+    },
+    "drink": {
+      "coke": false,
+      "dietCoke": false,
+      "mountainDew": false,
+      "sprite": true,
+      "size": "Large"
+    },
+    "price": 0.0,
+    "orderMethod": true,
+    "orderID": 0
+  },
+  {
+    "customer": {
+      "address": {
+        "streetAddress": "919 ensign ave",
+        "city": "Beachwood",
+        "state": "NJ",
+        "zipCode": "08722"
+      },
+      "firstName": "Melinda",
+      "lastName": "Duong",
+      "phoneNumber": "9998887777",
+      "creditCard": {
+        "nameOnCard": "Melinda Duong",
+        "cardNumber": "987654321",
+        "securityCode": "789",
+        "expirationDate": "09/59"
+      }
+    },
+    "customerPhoneNumber": "9998887777",
+    "pizza": {
+      "size": "Small",
+      "quantity": 9,
+      "toppings": []
+    },
+    "side": {
+      "wings": true,
+      "breadsticks": false,
+      "garlicKnots": false,
+      "bonelessWings": false
+    },
+    "drink": {
+      "coke": true,
+      "dietCoke": false,
+      "mountainDew": false,
+      "sprite": false,
+      "size": "Small"
+    },
+    "price": 0.0,
+    "orderMethod": false,
+    "orderID": 1
+  }
+]
