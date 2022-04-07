@@ -1,7 +1,0 @@
----JAR FILE---
-
-We have included a .jar file called "gson-2.9.0.jar".
-
-This is what we used to work with JSON in Java. 
-
-Please add this .jar file to your modules / libraries in your IDE to see our code function correctly.
