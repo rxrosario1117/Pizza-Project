@@ -1,3 +1,8 @@
+import com.google.gson.Gson;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Customer {
 
     private Address address;
@@ -147,6 +152,34 @@ public class Customer {
         public void setExpirationDate(String expirationDate) {
             this.expirationDate = expirationDate;
         }
+    }
+
+    //    serialize / deserialize
+    public String serialize(Customer customer){
+//        GsonBuilder() will set the string to print nicely in the console
+//        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        Gson gson = new Gson();
+
+//        Staff is converted to json text
+        String toJson = gson.toJson(customer);
+
+//        create new Json file
+
+        try{
+            FileWriter file = new FileWriter("Customer.json");
+            file.write(toJson);
+            file.flush();
+
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return toJson;
+    }
+
+    public Staff deserialize(String json){
+
+        return new Gson().fromJson(json, Staff.class);
     }
 
 }

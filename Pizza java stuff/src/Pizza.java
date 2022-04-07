@@ -3,6 +3,7 @@ import java.util.List;
 public class Pizza {
 
     String size;
+    String pizzaType;
     int quantity;
     List<String> toppings;
     SpecialtyPizzas specialtyPizzas;
@@ -12,6 +13,12 @@ public class Pizza {
         this.size = size;
         this.quantity = quantity;
         this.toppings = toppings;
+    }
+
+    public Pizza(String size, String pizzaType){
+        this.size = size;
+        this.pizzaType = pizzaType;
+
     }
 
     public String getSize() {
