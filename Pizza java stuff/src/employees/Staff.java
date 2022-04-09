@@ -65,14 +65,14 @@ public class Staff {
     }
 
     //    serialize a list of Orders and return a String of the json text
-    public static String serializeAList(List<Staff> orderList) {
+    public static String serializeAList(List<Staff> staffList) {
 
 //        GsonBuilder() will set the string to print nicely in the console
 //        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         Gson gson = new Gson();
 
 //        order is converted to json text
-        String toJson = gson.toJson(orderList);
+        String toJson = gson.toJson(staffList);
 
 //        create new Json file
         try{
@@ -91,10 +91,10 @@ public class Staff {
     public static List<Staff> deserializeAList(String json) {
 
 //        we must evaluate the type of the list of orders using a typeToken before we use Gson().fromJson
-        Type orderListType = new TypeToken<ArrayList<Staff>>(){}.getType();
+        Type staffListType = new TypeToken<ArrayList<Staff>>(){}.getType();
 
 //        returns deserialized / hydrated list
-        return new Gson().fromJson(json, orderListType);
+        return new Gson().fromJson(json, staffListType);
 
     }
 }

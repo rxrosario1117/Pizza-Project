@@ -50,147 +50,37 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-//    public Address getAddress() {
-//        return address;
-//    }
-//
-//    public void setAddress(Address address) {
-//        this.address = address;
-//    }
-//
-//    public CreditCard getCreditCard() {
-//        return creditCard;
-//    }
-//
-//    public void setCreditCard(CreditCard creditCard) {
-//        this.creditCard = creditCard;
-//    }
-//
-//    // nested class for address w/ constructor, getters, and setters
-//    public static class Address{
-//        private String streetAddress;
-//        private String city;
-//        private String state;
-//        private String zipCode;
-//
-//        public Address(String streetAddress, String city, String state, String zipCode) {
-//            this.streetAddress = streetAddress;
-//            this.city = city;
-//            this.state = state;
-//            this.zipCode = zipCode;
-//        }
-//
-//        public String getStreetAddress() {
-//            return streetAddress;
-//        }
-//
-//        public void setStreetAddress(String streetAddress) {
-//            this.streetAddress = streetAddress;
-//        }
-//
-//        public String getCity() {
-//            return city;
-//        }
-//
-//        public void setCity(String city) {
-//            this.city = city;
-//        }
-//
-//        public String getState() {
-//            return state;
-//        }
-//
-//        public void setState(String state) {
-//            this.state = state;
-//        }
-//
-//        public String getZipCode() {
-//            return zipCode;
-//        }
-//
-//        public void setZipCode(String zipCode) {
-//            this.zipCode = zipCode;
-//        }
-//    }
-//
-//    // nested class for credit card w/ constructor, getters, and setters
-//    public static class CreditCard{
-//        private String nameOnCard;
-//        private String cardNumber;
-//        private String securityCode;
-//        private String expirationDate;
-//
-//        public CreditCard(String nameOnCard, String cardNumber, String securityCode, String expirationDate) {
-//            this.nameOnCard = nameOnCard;
-//            this.cardNumber = cardNumber;
-//            this.securityCode = securityCode;
-//            this.expirationDate = expirationDate;
-//        }
-//
-//        public String getNameOnCard() {
-//            return nameOnCard;
-//        }
-//
-//        public void setNameOnCard(String nameOnCard) {
-//            this.nameOnCard = nameOnCard;
-//        }
-//
-//        public String getCardNumber() {
-//            return cardNumber;
-//        }
-//
-//        public void setCardNumber(String cardNumber) {
-//            this.cardNumber = cardNumber;
-//        }
-//
-//        public String getSecurityCode() {
-//            return securityCode;
-//        }
-//
-//        public void setSecurityCode(String securityCode) {
-//            this.securityCode = securityCode;
-//        }
-//
-//        public String getExpirationDate() {
-//            return expirationDate;
-//        }
-//
-//        public void setExpirationDate(String expirationDate) {
-//            this.expirationDate = expirationDate;
-//        }
-//    }
-
     //    serialize / deserialize
-    public static String serializeAList(List<Customer> customer){
+    public static String serializeAList(List<Customer> customerList){
 //        GsonBuilder() will set the string to print nicely in the console
 //        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         Gson gson = new Gson();
 
 //        employees.Staff is converted to json text
-        String toJson = gson.toJson(customer);
+        String customerToJson = gson.toJson(customerList);
 
 //        create new Json file
 
         try{
             FileWriter file = new FileWriter("Customer.json");
-            file.write(toJson);
+            file.write(customerToJson);
             file.flush();
 
         }catch (IOException e) {
             e.printStackTrace();
         }
 
-        return toJson;
+        return customerToJson;
     }
 
     //    deserialize a list of Orders and return the Order list
     public static List<Customer> deserializeAList(String json) {
 
 //        we must evaluate the type of the list of orders using a typeToken before we use Gson().fromJson
-        Type orderListType = new TypeToken<ArrayList<Customer>>(){}.getType();
+        Type customerListType = new TypeToken<ArrayList<Customer>>(){}.getType();
 
 //        returns deserialized / hydrated list
-        return new Gson().fromJson(json, orderListType);
+        return new Gson().fromJson(json, customerListType);
 
     }
 }

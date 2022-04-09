@@ -117,19 +117,19 @@ public class Order {
         Gson gson = new Gson();
 
 //        order is converted to json text
-        String toJson = gson.toJson(orderList);
+        String OrdertoJson = gson.toJson(orderList);
 
 //        create new Json file
         try{
             FileWriter file = new FileWriter("Order.json");
-            file.write(toJson);
+            file.write(OrdertoJson);
             file.flush();
 
         }catch (IOException e) {
             e.printStackTrace();
         }
 
-        return toJson;
+        return OrdertoJson;
     }
 
     //    deserialize a list of Orders and return the Order list
