@@ -16,14 +16,6 @@ public class Staff {
     private String employeeType;
     private String employeeID;
 
-    public String getEmployeeType() {
-        return employeeType;
-    }
-
-    public void setEmployeeType(String employeeType) {
-        this.employeeType = employeeType;
-    }
-
     public Staff(String firstName, String lastName, String password, String employeeID) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -54,6 +46,14 @@ public class Staff {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getEmployeeType() {
+        return employeeType;
+    }
+
+    public void setEmployeeType(String employeeType) {
+        this.employeeType = employeeType;
     }
 
     public String getEmployeeID() {

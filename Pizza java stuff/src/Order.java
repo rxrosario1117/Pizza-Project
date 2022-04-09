@@ -19,16 +19,16 @@ public class Order {
     Drink drink;
     float price;
     // True = pickup | False = deliver
-    Boolean pickup;
+     Boolean orderType;
     int orderID;
     // static order counter | updated in the constructor for every new order
     public static int nextOrderID = 1;
 
     // Order constructor
-    public Order(Customer customer, Pizza pizza, Side side, Drink drink, float price , Boolean pickup) {
+    public Order(Customer customer, Pizza pizza, Side side, Drink drink, float price , Boolean orderType) {
         this.customer = customer;
         this.customerPhoneNumber = customer.getPhoneNumber();
-        this.pickup = pickup;
+        this.orderType = orderType;
         this.pizza = pizza;
         this.side = side;
         this.drink = drink;
@@ -85,12 +85,12 @@ public class Order {
         this.price = price;
     }
 
-    public Boolean getPickup() {
-        return pickup;
+    public Boolean getOrderType() {
+        return orderType;
     }
 
-    public void setPickup(Boolean pickup) {
-        this.pickup = pickup;
+    public void setOrderType(Boolean orderType) {
+        this.orderType = orderType;
     }
 
     public int getOrderID() {

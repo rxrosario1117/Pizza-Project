@@ -18,7 +18,7 @@ public class Customer {
     private customerCreditCard creditCard;
 
     //    customer constructor and getters and setters
-    public Customer(String firstName, customerAddress address, String lastName, String phoneNumber, customerCreditCard creditCard) {
+    public Customer(String firstName, String lastName, customerAddress address, String phoneNumber, customerCreditCard creditCard) {
         this.firstName = firstName;
         this.address = address;
         this.lastName = lastName;

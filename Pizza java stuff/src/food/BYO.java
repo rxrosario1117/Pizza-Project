@@ -3,10 +3,10 @@ package food;
 import java.util.List;
 
 public class BYO extends Pizza{
-    private String crustType;
-    private String sauce;
-    private String cheese;
-    private List<String> toppings;
+    String crustType;
+    String sauce;
+    String cheese;
+    List<String> toppings;
 
     public BYO(String crustType, String sauce, String cheese, List<String> toppings, String size) {
         super(size);
