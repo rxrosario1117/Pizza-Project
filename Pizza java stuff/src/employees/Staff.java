@@ -97,6 +97,13 @@ public class Staff {
         return new Gson().fromJson(json, staffListType);
 
     }
+
+    public static void createNewStaff(){
+        // Use class list object to serialize a new staff into the json file
+
+    }
+
+
 }
 
 ////      ------ Staff members to / from JSON test ------

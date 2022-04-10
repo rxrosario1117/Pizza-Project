@@ -13,9 +13,11 @@ import java.util.List;
 public class Customer {
     String firstName;
     String lastName;
+    static List<Customer> custList = new ArrayList<>();
     private customerAddress address;
     private String phoneNumber;
     private customerCreditCard creditCard;
+
 
     //    customer constructor and getters and setters
     public Customer(String firstName, String lastName, customerAddress address, String phoneNumber, customerCreditCard creditCard) {
@@ -24,6 +26,7 @@ public class Customer {
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.creditCard = creditCard;
+
     }
 
     public String getFirstName() {
@@ -81,6 +84,16 @@ public class Customer {
 
 //        returns deserialized / hydrated list
         return new Gson().fromJson(json, customerListType);
+
+    }
+
+    public static void createNewCustomer(){
+        // Use ListController class to make updates to the class list to be used in the json file
+
+    }
+
+    public static void removeCustomer(){
+        // Use ListController class to make updates to the class list to be used in the json file
 
     }
 }

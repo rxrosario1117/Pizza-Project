@@ -142,6 +142,11 @@ public class Order {
         return new Gson().fromJson(json, orderListType);
 
     }
+
+    public static void createNewOrder(){
+        // Use class list object to serialize a new order into the json file
+
+    }
 }
 
 ////      ------ Two Orders with one SPECIALTY PIZZA and one BYO PIZZA to / from JSON test ------
