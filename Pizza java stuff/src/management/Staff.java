@@ -114,8 +114,7 @@ public class Staff {
         return true;
     }
 
-    public static boolean goToPrevScreen(){
-        return true;
+    public static void goToPrevScreen(){
     }
 
     public static boolean updateCustomerInfo(String phoneNumber){
