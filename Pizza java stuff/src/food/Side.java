@@ -2,7 +2,7 @@ package food;
 
 public class Side {
     String sideSelection;
-    private float price;
+    private float price = 0;
     private float wings = 1.00f;
     private float breadSticks = 1.50f;
     private float garlicKnots = 2.00f;

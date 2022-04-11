@@ -1,7 +1,6 @@
-
+package list;
 
 import customer_info.Customer;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,9 +11,6 @@ public class ListController {
 
 
     ListController(){
-        customerList = new ArrayList<>();
-
-
 
 
     }

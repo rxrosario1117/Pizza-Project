@@ -99,9 +99,16 @@ public class Staff {
     }
 
     public static void createNewStaff(){
-        // Use class list object to serialize a new staff into the json file
+        // Use list.ListController class to make updates to the class list to be used in the json file
 
     }
+
+    public static void removeStaff(){
+        // Use list.ListController class to make updates to the class list to be used in the json file
+
+    }
+
+
 
 
 }

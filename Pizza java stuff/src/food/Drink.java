@@ -3,7 +3,7 @@ package food;
 public class Drink {
     String drinkType;
     String size;
-    private float price;
+    private float price = 0;
     private float smallPrice = 1.00f;
     private float mediumPrice = 1.50f;
     private float largePrice = 2.00f;

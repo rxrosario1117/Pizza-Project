@@ -3,6 +3,7 @@ package customer_info;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import employees.Staff;
+import list.ListController;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -26,6 +27,7 @@ public class Customer {
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.creditCard = creditCard;
+
 
     }
 
@@ -88,12 +90,12 @@ public class Customer {
     }
 
     public static void createNewCustomer(){
-        // Use ListController class to make updates to the class list to be used in the json file
+        // Use list.ListController class to make updates to the class list to be used in the json file
 
     }
 
     public static void removeCustomer(){
-        // Use ListController class to make updates to the class list to be used in the json file
+        // Use list.ListController class to make updates to the class list to be used in the json file
 
     }
 }

@@ -6,7 +6,7 @@ public class Pizza {
 
     String pizzaType;
     String size;
-    private float price;
+    private float price = 0;
     private float small = 5.00f;
     private float medium = 7.50f;
     private float large = 10.00f;
@@ -86,6 +86,4 @@ public class Pizza {
     public void setLarge(float large) {
         this.large = large;
     }
-
-
 }

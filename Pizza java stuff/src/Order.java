@@ -143,8 +143,15 @@ public class Order {
 
     }
 
-    public static void createNewOrder(){
-        // Use class list object to serialize a new order into the json file
+    public void createNewOrder(){
+//        Use list.ListController class to make updates to the class list to be used in the json file
+
+    }
+
+    public void calculatePrice(){
+//        calculate total price for the order
+
+        setPrice(getPrice() + pizza.getPrice() + side.getPrice() + drink.getPrice());
 
     }
 }
