@@ -1,12 +1,14 @@
 package food;
 
+import management.Menu;
+
 public class Drink {
     String drinkType;
     String size;
     private float price = 0;
-    private float smallPrice = 1.00f;
-    private float mediumPrice = 1.50f;
-    private float largePrice = 2.00f;
+//    private float smallPrice = 1.00f;
+//    private float mediumPrice = 1.50f;
+//    private float largePrice = 2.00f;
 
     //    Sets the drink type, size, and the price
     public Drink(String drinkType, String size){
@@ -25,16 +27,16 @@ public class Drink {
 
         if(size.equalsIgnoreCase("small")){
             this.size = size;
-            price = smallPrice;
+            price = Menu.getSmallDrink();
 
         }
         else if(size.equalsIgnoreCase("medium")){
             this.size = size;
-            price = mediumPrice;
+            price = Menu.getMediumDrink();
         }
         else if(size.equalsIgnoreCase("large")){
             this.size = size;
-            price = largePrice;
+            price = Menu.getLargeDrink();
         }
     }
 
@@ -62,27 +64,27 @@ public class Drink {
         this.price = price;
     }
 
-    public float getSmallPrice() {
-        return smallPrice;
-    }
-
-    public void setSmallPrice(float smallPrice) {
-        this.smallPrice = smallPrice;
-    }
-
-    public float getMediumPrice() {
-        return mediumPrice;
-    }
-
-    public void setMediumPrice(float mediumPrice) {
-        this.mediumPrice = mediumPrice;
-    }
-
-    public float getLargePrice() {
-        return largePrice;
-    }
-
-    public void setLargePrice(float largePrice) {
-        this.largePrice = largePrice;
-    }
+//    public float getSmallPrice() {
+//        return smallPrice;
+//    }
+//
+//    public void setSmallPrice(float smallPrice) {
+//        this.smallPrice = smallPrice;
+//    }
+//
+//    public float getMediumPrice() {
+//        return mediumPrice;
+//    }
+//
+//    public void setMediumPrice(float mediumPrice) {
+//        this.mediumPrice = mediumPrice;
+//    }
+//
+//    public float getLargePrice() {
+//        return largePrice;
+//    }
+//
+//    public void setLargePrice(float largePrice) {
+//        this.largePrice = largePrice;
+//    }
 }

@@ -1,94 +1,94 @@
 package management;
 
 public class Menu {
-    float smallSpecialtyPizza = 5.00f;
-    float mediumSpecialtyPizza = 7.50f;
-    float largeSpecialtyPizza = 10.00f;
-    float wings = 1.00f;
-    float breadSticks = 1.50f;
-    float garlicKnots = 2.00f;
-    float bonelessWings = 2.50f;
-    float smallDrink = 1.00f;
-    float mediumDrink = 1.50f;
-    float largeDrink = 2.00f;
+    public static float smallSpecialtyPizza = 5.00f;
+    public static float mediumSpecialtyPizza = 7.50f;
+    public static float largeSpecialtyPizza = 10.00f;
+    public static float wings = 1.00f;
+    public static float breadSticks = 1.50f;
+    public static float garlicKnots = 2.00f;
+    public static float bonelessWings = 2.50f;
+    public static float smallDrink = 1.00f;
+    public static float mediumDrink = 1.50f;
+    public static float largeDrink = 2.00f;
 
-    public float getSmallSpecialtyPizza() {
+    public static float getSmallSpecialtyPizza() {
         return smallSpecialtyPizza;
     }
 
-    public void setSmallSpecialtyPizza(float smallSpecialtyPizza) {
-        this.smallSpecialtyPizza = smallSpecialtyPizza;
+    public static void setSmallSpecialtyPizza(float smallSpecialtyPizza) {
+        Menu.smallSpecialtyPizza = smallSpecialtyPizza;
     }
 
-    public float getMediumSpecialtyPizza() {
+    public static float getMediumSpecialtyPizza() {
         return mediumSpecialtyPizza;
     }
 
-    public void setMediumSpecialtyPizza(float mediumSpecialtyPizza) {
-        this.mediumSpecialtyPizza = mediumSpecialtyPizza;
+    public static void setMediumSpecialtyPizza(float mediumSpecialtyPizza) {
+        Menu.mediumSpecialtyPizza = mediumSpecialtyPizza;
     }
 
-    public float getLargeSpecialtyPizza() {
+    public static float getLargeSpecialtyPizza() {
         return largeSpecialtyPizza;
     }
 
-    public void setLargeSpecialtyPizza(float largeSpecialtyPizza) {
-        this.largeSpecialtyPizza = largeSpecialtyPizza;
+    public static void setLargeSpecialtyPizza(float largeSpecialtyPizza) {
+        Menu.largeSpecialtyPizza = largeSpecialtyPizza;
     }
 
-    public float getWings() {
+    public static float getWings() {
         return wings;
     }
 
-    public void setWings(float wings) {
-        this.wings = wings;
+    public static void setWings(float wings) {
+        Menu.wings = wings;
     }
 
-    public float getBreadSticks() {
+    public static float getBreadSticks() {
         return breadSticks;
     }
 
-    public void setBreadSticks(float breadSticks) {
-        this.breadSticks = breadSticks;
+    public static void setBreadSticks(float breadSticks) {
+        Menu.breadSticks = breadSticks;
     }
 
-    public float getGarlicKnots() {
+    public static float getGarlicKnots() {
         return garlicKnots;
     }
 
-    public void setGarlicKnots(float garlicKnots) {
-        this.garlicKnots = garlicKnots;
+    public static void setGarlicKnots(float garlicKnots) {
+        Menu.garlicKnots = garlicKnots;
     }
 
-    public float getBonelessWings() {
+    public static float getBonelessWings() {
         return bonelessWings;
     }
 
-    public void setBonelessWings(float bonelessWings) {
-        this.bonelessWings = bonelessWings;
+    public static void setBonelessWings(float bonelessWings) {
+        Menu.bonelessWings = bonelessWings;
     }
 
-    public float getSmallDrink() {
+    public static float getSmallDrink() {
         return smallDrink;
     }
 
-    public void setSmallDrink(float smallDrink) {
-        this.smallDrink = smallDrink;
+    public static void setSmallDrink(float smallDrink) {
+        Menu.smallDrink = smallDrink;
     }
 
-    public float getMediumDrink() {
+    public static float getMediumDrink() {
         return mediumDrink;
     }
 
-    public void setMediumDrink(float mediumDrink) {
-        this.mediumDrink = mediumDrink;
+    public static void setMediumDrink(float mediumDrink) {
+        Menu.mediumDrink = mediumDrink;
     }
 
-    public float getLargeDrink() {
+    public static float getLargeDrink() {
         return largeDrink;
     }
 
-    public void setLargeDrink(float largeDrink) {
-        this.largeDrink = largeDrink;
+    public static void setLargeDrink(float largeDrink) {
+        Menu.largeDrink = largeDrink;
     }
 }

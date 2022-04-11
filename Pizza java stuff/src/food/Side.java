@@ -2,33 +2,31 @@ package food;
 
 import management.Menu;
 
-import static management.Menu.*;
-
 public class Side {
     String sideSelection;
     private float price = 0;
     private float wings = 1.00f;
-    private float breadSticks = 1.50f;
-    private float garlicKnots = 2.00f;
-    private float bonelessWings = 2.50f;
+//    private float breadSticks = 1.50f;
+//    private float garlicKnots = 2.00f;
+//    private float bonelessWings = 2.50f;
 
     //    Sets the side type and the price
     public Side(String sideSelection){
         if(sideSelection.equalsIgnoreCase("wings")){
             this.sideSelection = sideSelection;
-            price = wings;
+            price = Menu.getWings();
         }
         else if(sideSelection.equalsIgnoreCase("breadSticks")){
             this.sideSelection = sideSelection;
-            price = breadSticks;
+            price = Menu.getBreadSticks();
         }
         else if(sideSelection.equalsIgnoreCase("garlicKnots")){
             this.sideSelection = sideSelection;
-            price = garlicKnots;
+            price = Menu.getGarlicKnots();
         }
         else if(sideSelection.equalsIgnoreCase("bonelessWings")){
             this.sideSelection = sideSelection;
-            price = bonelessWings;
+            price = Menu.getBonelessWings();
         }
     }
 
@@ -56,27 +54,27 @@ public class Side {
         this.wings = wings;
     }
 
-    public float getBreadSticks() {
-        return breadSticks;
-    }
-
-    public void setBreadSticks(float breadSticks) {
-        this.breadSticks = breadSticks;
-    }
-
-    public float getGarlicKnots() {
-        return garlicKnots;
-    }
-
-    public void setGarlicKnots(float garlicKnots) {
-        this.garlicKnots = garlicKnots;
-    }
-
-    public float getBonelessWings() {
-        return bonelessWings;
-    }
-
-    public void setBonelessWings(float bonelessWings) {
-        this.bonelessWings = bonelessWings;
-    }
+//    public float getBreadSticks() {
+//        return breadSticks;
+//    }
+//
+//    public void setBreadSticks(float breadSticks) {
+//        this.breadSticks = breadSticks;
+//    }
+//
+//    public float getGarlicKnots() {
+//        return garlicKnots;
+//    }
+//
+//    public void setGarlicKnots(float garlicKnots) {
+//        this.garlicKnots = garlicKnots;
+//    }
+//
+//    public float getBonelessWings() {
+//        return bonelessWings;
+//    }
+//
+//    public void setBonelessWings(float bonelessWings) {
+//        this.bonelessWings = bonelessWings;
+//    }
 }

@@ -1,5 +1,7 @@
 package food;
 
+import management.Menu;
+
 import java.util.List;
 
 public class Pizza {
@@ -7,9 +9,9 @@ public class Pizza {
     String pizzaType;
     String size;
     private float price = 0;
-    private float small = 5.00f;
-    private float medium = 7.50f;
-    private float large = 10.00f;
+//    private float small = 5.00f;
+//    private float medium = 7.50f;
+//    private float large = 10.00f;
 
 //  Specialty food.Pizza constructor
     public Pizza(){
@@ -20,17 +22,17 @@ public class Pizza {
         if (size.equalsIgnoreCase("small")) {
             this.pizzaType = pizzaType;
             this.size = size;
-            price += small;
+            price = Menu.getSmallSpecialtyPizza();
         }
         else if (size.equalsIgnoreCase("medium")){
             this.pizzaType = pizzaType;
             this.size = size;
-            price += medium;
+            price = Menu.getMediumSpecialtyPizza();
         }
         else if (size.equalsIgnoreCase("large")){
             this.pizzaType = pizzaType;
             this.size = size;
-            price += large;
+            price = Menu.getLargeSpecialtyPizza();
         }
     }
 
@@ -63,27 +65,27 @@ public class Pizza {
         this.price = price;
     }
 
-    public float getSmall() {
-        return small;
-    }
-
-    public void setSmall(float small) {
-        this.small = small;
-    }
-
-    public float getMedium() {
-        return medium;
-    }
-
-    public void setMedium(float medium) {
-        this.medium = medium;
-    }
-
-    public float getLarge() {
-        return large;
-    }
-
-    public void setLarge(float large) {
-        this.large = large;
-    }
+//    public float getSmall() {
+//        return small;
+//    }
+//
+//    public void setSmall(float small) {
+//        this.small = small;
+//    }
+//
+//    public float getMedium() {
+//        return medium;
+//    }
+//
+//    public void setMedium(float medium) {
+//        this.medium = medium;
+//    }
+//
+//    public float getLarge() {
+//        return large;
+//    }
+//
+//    public void setLarge(float large) {
+//        this.large = large;
+//    }
 }

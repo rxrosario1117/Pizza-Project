@@ -17,11 +17,16 @@ import static list.ListController.orderList;
 import static list.ListController.orderJSON;
 
 public class Order {
+//    To handle a case where the customer doesn't order any drink/side
+//      make an array list of pizza, side, drink: if the size is 0 ignore that item
     Customer customer;
     String customerPhoneNumber;
     Pizza pizza;
     Side side;
     Drink drink;
+//    List<Pizza> pizzaList = new ArrayList<>();
+//    List<Side> sideList = new ArrayList<>();
+//    List<Drink> drinkList = new ArrayList<>();
     float price;
     // True = pickup | False = deliver
      Boolean orderType;
