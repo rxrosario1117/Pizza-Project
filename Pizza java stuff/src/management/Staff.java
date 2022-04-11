@@ -1,4 +1,4 @@
-package employees;
+package management;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+
+import static list.ListController.staffJSON;
+import static list.ListController.staffList;
 
 public class Staff {
     private String firstName;
@@ -65,66 +68,93 @@ public class Staff {
     }
 
     //    serialize a list of Orders and return a String of the json text
-    public static String serializeAList(List<Staff> staffList) {
+    public static void serializeAList() {
 
 //        GsonBuilder() will set the string to print nicely in the console
 //        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         Gson gson = new Gson();
 
-//        order is converted to json text
-        String toJson = gson.toJson(staffList);
+//        list.ListController.staffList is converted to json text
+        staffJSON = gson.toJson(staffList);
 
 //        create new Json file
         try{
             FileWriter file = new FileWriter("Staff.json");
-            file.write(toJson);
+            file.write(staffJSON);
             file.flush();
 
         }catch (IOException e) {
             e.printStackTrace();
         }
-
-        return toJson;
     }
 
-    //    deserialize a list of Orders and return the Order list
-    public static List<Staff> deserializeAList(String json) {
+    //    deserialize a list of Orders and return the management.Staff list
+    public static List<Staff> deserializeAList() {
 
 //        we must evaluate the type of the list of orders using a typeToken before we use Gson().fromJson
         Type staffListType = new TypeToken<ArrayList<Staff>>(){}.getType();
 
 //        returns deserialized / hydrated list
-        return new Gson().fromJson(json, staffListType);
+        return new Gson().fromJson(staffJSON, staffListType);
 
     }
 
-    public static void createNewStaff(){
+    public static void createNewStaff(String firstName, String lastName, String password, String employeeID){
         // Use list.ListController class to make updates to the class list to be used in the json file
+        Staff staff = new Staff(firstName, lastName, password, employeeID);
 
+        staffList.add(staff);
+
+//        re-writes the json file to add the new customer
+        serializeAList();
     }
 
-    public static void removeStaff(){
+    public static void createNewManager(String firstName, String lastName, String password, String employeeID){
         // Use list.ListController class to make updates to the class list to be used in the json file
+        Staff staff = new Manager(firstName, lastName, password, employeeID);
 
+        staffList.add(staff);
+
+//        re-writes the json file to add the new customer
+        serializeAList();
     }
 
+    public static void removeStaff(String employeeID){
+//        Use list.ListController.staffList to make updates to the class list to be used in the json file
 
+//        searches for the customer by phone number and removes them
+        for(int i = 0; i < staffList.size(); i++){
 
+            if (staffList.get(i).getEmployeeID().equals(employeeID)){
+                staffList.remove(i);
+            }
+        }
+    }
 
+    public static void removeManager(String employeeID){
+//        Use list.ListController.staffList to make updates to the class list to be used in the json file
+
+//        searches for the customer by phone number and removes them
+        for(int i = 0; i < staffList.size(); i++){
+
+            if (staffList.get(i).getEmployeeID().equals(employeeID)){
+                staffList.remove(i);
+            }
+        }
+    }
 }
 
 ////      ------ Staff members to / from JSON test ------
 ////                Just paste into main to test
+////        import this line
+//      import static list.ListController.staffList;
+//      Staff.createNewStaff("Ray", "Rosario", "1234qwer", "55555");
+//      Staff.createNewManager("Nelso", "Villalobos", "!@#$QWER", "99999");
 //
-//      Staff staff1 = new Staff("Ray", "Rosario", "1234qwer", "55555");
-//      Staff mngr1 = new Manager("Nelos", "Villalobos", "!@#$QWER", "99999");
+//      System.out.println("Size: " + staffList.size());
 //
-//      List<Staff> empl = new ArrayList<>();
-//      empl.add(staff1);
-//      empl.add(mngr1);
+//      Staff.removeStaff("99999");
 //
-//      Staff.serializeAList(empl);
+//      System.out.println("Size after removal: " + staffList.size());
 //
-//      empl = Staff.deserializeAList(Staff.serializeAList(empl));
-//
-//      System.out.println(empl.get(0).getPassword());
+//      System.out.println("Staff employee ID at index 0: " + staffList.get(0).getEmployeeID());
