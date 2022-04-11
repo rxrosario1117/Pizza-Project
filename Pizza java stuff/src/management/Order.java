@@ -159,7 +159,7 @@ public class Order {
         return true;
     }
 
-    public static String selectPaymentInfo(String userSelection){
+    public static String selectPaymentMethod(String userSelection){
         return userSelection;
     }
 
