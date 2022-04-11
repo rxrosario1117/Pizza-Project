@@ -1,5 +1,7 @@
 package management;
 
+import static list.ListController.customerList;
+
 public class Manager extends Staff{
 
     // constructor to call parent constructor (management.Staff) with super
@@ -7,5 +9,10 @@ public class Manager extends Staff{
 //        
         super(firstName, lastName, password, employeeID);
         super.setEmployeeType("Manager");
+    }
+
+    public static boolean updateCustomerPaymentInfo(String phoneNumber){
+
+        return true;
     }
 }

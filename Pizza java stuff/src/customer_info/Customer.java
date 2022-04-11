@@ -100,7 +100,7 @@ public class Customer {
 
     }
 
-    public static void createNewCustomer(String firstName, String lastName, customerAddress address, String phoneNumber, customerCreditCard creditCard){
+    public static boolean createNewCustomer(String firstName, String lastName, customerAddress address, String phoneNumber, customerCreditCard creditCard){
 //        Use list.ListController.customerList to make updates to the class list to be used in the json file
 
         Customer customer = new Customer(firstName, lastName, address, phoneNumber, creditCard);
@@ -109,9 +109,10 @@ public class Customer {
 //        re-writes the json file to add the new customer
         serializeAList();
 
+        return true;
     }
 
-    public static void removeCustomer(String phoneNumber){
+    public static boolean removeCustomer(String phoneNumber){
 //        Use list.ListController.customerList to make updates to the class list to be used in the json file
 
 //        searches for the customer by phone number and removes them
@@ -121,6 +122,7 @@ public class Customer {
                 customerList.remove(i);
             }
         }
+        return true;
     }
 }
 

@@ -146,7 +146,24 @@ public class Order {
 
     }
 
-    public static void createNewOrder(Customer customer, Pizza pizza, Side side, Drink drink, float price , Boolean orderType){
+    public static boolean addToCart(){
+        return true;
+    }
+
+    public static boolean confirmOrder(){
+        return true;
+    }
+
+    public static String selectPaymentInfo(String userSelection){
+        return userSelection;
+    }
+
+    public static void generateReceipt(){
+        // display all order items and price
+        // put a place to sign for credit card users
+    }
+
+    public static void createNewOrder(Customer customer, Pizza pizza, Side side, Drink drink, float price , boolean orderType){
 //        Use list.ListController class to make updates to the class list to be used in the json file
 
         Order order = new Order(customer, pizza, side, drink, price , orderType);

@@ -1,5 +1,9 @@
 package food;
 
+import management.Menu;
+
+import static management.Menu.*;
+
 public class Side {
     String sideSelection;
     private float price = 0;

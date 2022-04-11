@@ -9,8 +9,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import static list.ListController.staffJSON;
-import static list.ListController.staffList;
+import static list.ListController.*;
 
 public class Staff {
     private String firstName;
@@ -99,7 +98,31 @@ public class Staff {
 
     }
 
-    public static void createNewStaff(String firstName, String lastName, String password, String employeeID){
+    //    check username and password are valid
+    public static boolean loginVerification(String userName, String password){
+
+//        temp
+        return true;
+    }
+
+//    checks for existing customer
+    public static void startOrder(String phoneNumber){
+        // for loop to go through customerList to verify existing customer
+    }
+
+    public static boolean logout(){
+        return true;
+    }
+
+    public static boolean goToPrevScreen(){
+        return true;
+    }
+
+    public static boolean updateCustomerInfo(String phoneNumber){
+        return true;
+    }
+
+    public static boolean createNewStaff(String firstName, String lastName, String password, String employeeID){
         // Use list.ListController class to make updates to the class list to be used in the json file
         Staff staff = new Staff(firstName, lastName, password, employeeID);
 
@@ -107,9 +130,11 @@ public class Staff {
 
 //        re-writes the json file to add the new customer
         serializeAList();
+
+        return true;
     }
 
-    public static void createNewManager(String firstName, String lastName, String password, String employeeID){
+    public static boolean createNewManager(String firstName, String lastName, String password, String employeeID){
         // Use list.ListController class to make updates to the class list to be used in the json file
         Staff staff = new Manager(firstName, lastName, password, employeeID);
 
@@ -117,9 +142,11 @@ public class Staff {
 
 //        re-writes the json file to add the new customer
         serializeAList();
+
+        return true;
     }
 
-    public static void removeStaff(String employeeID){
+    public static boolean removeStaff(String employeeID){
 //        Use list.ListController.staffList to make updates to the class list to be used in the json file
 
 //        searches for the customer by phone number and removes them
@@ -129,9 +156,11 @@ public class Staff {
                 staffList.remove(i);
             }
         }
+
+        return true;
     }
 
-    public static void removeManager(String employeeID){
+    public static boolean removeManager(String employeeID){
 //        Use list.ListController.staffList to make updates to the class list to be used in the json file
 
 //        searches for the customer by phone number and removes them
@@ -141,6 +170,8 @@ public class Staff {
                 staffList.remove(i);
             }
         }
+
+        return true;
     }
 }
 
