@@ -25,7 +25,9 @@ public class JsonController <T>{
     public static String orderJSON;
     public static String customerJSON;
     public static String staffJSON;
- ///rtyfrjyfjtgyjkgkugk
+
+    //push from ray to master
+
     public JsonController() {
 
     }
@@ -142,70 +144,70 @@ public class JsonController <T>{
         return "";
     }
 
-////      w/o generics
-//    public static void serializeAnOrderList(Order order) throws IOException {
-//        Gson gson = new Gson();
-//
-//        List<Order> updatedListToBeSerialized;
-//        updatedListToBeSerialized = deserializeAnOrderList("Order.json");
-//
-//        updatedListToBeSerialized.add(order);
-//
-//        String orderJSON = gson.toJson(updatedListToBeSerialized);
-//
-//        try{
-//            FileWriter file = new FileWriter("Order.json");
-//            file.write(orderJSON);
-//            file.flush();
-//
-//        }catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//
-//    public static void serializeACustomerList(Customer customer) throws IOException {
-//        Gson gson = new Gson();
-//
-//        List<Customer> updatedListToBeSer;
-//        updatedListToBeSer = deserializeACustomerList("Customer.json");
-//
-//        updatedListToBeSer.add(customer);
-//
-//        String custJSON = gson.toJson(updatedListToBeSer);
-//
-//        try{
-//            FileWriter file = new FileWriter("Customer.json");
-//            file.write(custJSON);
-//            file.flush();
-//
-//        }catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//
-//    public static void serializeAStaffList(Staff staff) throws IOException {
-//        Gson gson = new Gson();
-//
-//        List<Staff> updatedListToBeSerialized;
-//        updatedListToBeSerialized = deserializeAStaffList("Staff.json");
-//
-//        updatedListToBeSerialized.add(staff);
-//
-//        String staffJSON = gson.toJson(updatedListToBeSerialized);
-//
-//        try{
-//            FileWriter file = new FileWriter("Staff.json");
-//            file.write(staffJSON);
-//            file.flush();
-//
-//        }catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//
+//      w/o generics
+    public static void serializeAnOrderList(Order order) throws IOException {
+        Gson gson = new Gson();
+
+        List<Order> updatedListToBeSerialized;
+        updatedListToBeSerialized = deserializeAnOrderList("Order.json");
+
+        updatedListToBeSerialized.add(order);
+
+        String orderJSON = gson.toJson(updatedListToBeSerialized);
+
+        try{
+            FileWriter file = new FileWriter("Order.json");
+            file.write(orderJSON);
+            file.flush();
+
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static void serializeACustomerList(Customer customer) throws IOException {
+        Gson gson = new Gson();
+
+        List<Customer> updatedListToBeSer;
+        updatedListToBeSer = deserializeACustomerList("Customer.json");
+
+        updatedListToBeSer.add(customer);
+
+        String custJSON = gson.toJson(updatedListToBeSer);
+
+        try{
+            FileWriter file = new FileWriter("Customer.json");
+            file.write(custJSON);
+            file.flush();
+
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static void serializeAStaffList(Staff staff) throws IOException {
+        Gson gson = new Gson();
+
+        List<Staff> updatedListToBeSerialized;
+        updatedListToBeSerialized = deserializeAStaffList("Staff.json");
+
+        updatedListToBeSerialized.add(staff);
+
+        String staffJSON = gson.toJson(updatedListToBeSerialized);
+
+        try{
+            FileWriter file = new FileWriter("Staff.json");
+            file.write(staffJSON);
+            file.flush();
+
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 //    // getFileName might be redundant IF we as the developers are the ones controlling the json file name/location
 ////    public static String getFileName() throws IOException {
 ////        Scanner sc = new Scanner(System.in);
