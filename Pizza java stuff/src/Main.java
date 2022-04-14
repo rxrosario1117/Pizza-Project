@@ -22,6 +22,7 @@ public class Main {
 //        If the json file doesn't exist, it is created then written to
         genericSerializeTest();
 
+
 //        Deserialize works with individual deserialize methods in JsonController
         orderDeserializeTest();
         customerDeserializeTest();
