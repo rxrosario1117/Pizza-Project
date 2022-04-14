@@ -95,7 +95,7 @@ public class JsonController <T>{
 
 //        returns deserialized object
         return new Gson().fromJson(readInJson, customerListType);
-    }
+            }
 
     public static ArrayList<Staff> deserializeAStaffList(String file) throws IOException {
         // get name/location of json file from the user and store it in a string - DONE IN MAIN
