@@ -30,43 +30,43 @@ public class JsonController <T>{
 
     }
 
-//    test with generics - WORKS
-    public void serializeAList(T object) throws IOException {
-        String jsonToUpdate = jsonFileToUpdate(object);
-
-        Gson gson = new Gson();
-
-        List<T> updatedListToBeSer;
-        updatedListToBeSer = deserializeAList(jsonToUpdate);
-
-        updatedListToBeSer.add(object);
-
-        String JSON = gson.toJson(updatedListToBeSer);
-
-        try{
-            FileWriter file = new FileWriter(jsonToUpdate);
-            file.write(JSON);
-            file.flush();
-
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //      Deserialize does not work with generics
-    public ArrayList<T> deserializeAList(String file) throws IOException {
-        // get name/location of json file from the user and store it in a string - DONE IN MAIN
-
-        // convert json file to a string to be deserialized
-//        String readInJson = getFileName();
-        String readInJson = convertJsonIntoString(file);
-
-//        we must evaluate the type of the list of orders using a typeToken before we use Gson().fromJson
-        Type genericListType = new TypeToken<ArrayList<T>>(){}.getType();
-
-//        returns deserialized object
-        return new Gson().fromJson(readInJson, genericListType);
-    }
+////    test with generics - WORKS
+//    public void serializeAList(T object) throws IOException {
+//        String jsonToUpdate = jsonFileToUpdate(object);
+//
+//        Gson gson = new Gson();
+//
+//        List<T> updatedListToBeSer;
+//        updatedListToBeSer = deserializeAList(jsonToUpdate);
+//
+//        updatedListToBeSer.add(object);
+//
+//        String JSON = gson.toJson(updatedListToBeSer);
+//
+//        try{
+//            FileWriter file = new FileWriter(jsonToUpdate);
+//            file.write(JSON);
+//            file.flush();
+//
+//        }catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    //      Deserialize does not work with generics
+//    public ArrayList<T> deserializeAList(String file) throws IOException {
+//        // get name/location of json file from the user and store it in a string - DONE IN MAIN
+//
+//        // convert json file to a string to be deserialized
+////        String readInJson = getFileName();
+//        String readInJson = convertJsonIntoString(file);
+//
+////        we must evaluate the type of the list of orders using a typeToken before we use Gson().fromJson
+//        Type genericListType = new TypeToken<ArrayList<T>>(){}.getType();
+//
+////        returns deserialized object
+//        return new Gson().fromJson(readInJson, genericListType);
+//    }
 
     public static ArrayList<Order> deserializeAnOrderList(String file) throws IOException {
         // get name/location of json file from the user and store it in a string - DONE IN MAIN
