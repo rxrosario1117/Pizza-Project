@@ -20,13 +20,14 @@ public class Main {
     public static void main(String[] args) throws IOException {
 //        Creates a new staff, order, customer and adds them to their respective json files
 //        If the json file doesn't exist, it is created then written to
-        genericSerializeTest();
+//        genericSerializeTest();
 
 
 //        Deserialize works with individual deserialize methods in JsonController
-        orderDeserializeTest();
-        customerDeserializeTest();
-        staffDeserializeTest();
+//        orderDeserializeTest();
+//        customerDeserializeTest();
+//        staffDeserializeTest();
+        removeCustomer();
     }
 
     public static void orderCreationTest() throws IOException {
@@ -153,7 +154,7 @@ public class Main {
         ArrayList<Customer> customerList = new ArrayList<>();
         customerList = JsonController.deserializeACustomerList(file);
 
-        System.out.println(customerList.get(0).getPhoneNumber());
+        System.out.println(customerList.get(0).getCreditCard());
     }
 
     public static void staffDeserializeTest() throws IOException {
@@ -165,6 +166,9 @@ public class Main {
         System.out.println(staffList.get(0).getEmployeeType());
     }
 
+    public static void removeCustomer() throws IOException {
 
+        Customer.removeCustomer("789456");
+    }
 
 }

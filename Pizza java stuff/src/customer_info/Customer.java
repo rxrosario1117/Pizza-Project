@@ -1,14 +1,9 @@
 package customer_info;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import list.JsonController;
 
-import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Customer {
     String firstName;
@@ -94,16 +89,16 @@ public class Customer {
         return true;
     }
 
-//    public static boolean removeCustomer(String phoneNumber){
-////        Use list.JsonController.customerList to make updates to the class list to be used in the json file
-//
-////        searches for the customer by phone number and removes them
-//        for(int i = 0; i < customerList.size(); i++){
-//
-//            if (customerList.get(i).phoneNumber.equals(phoneNumber)){
-//                customerList.remove(i);
-//            }
-//        }
-//        return true;
-//    }
+    public static void removeCustomer(String phoneNumber) throws IOException {
+//        Use list.JsonController.customerList to make updates to the class list to be used in the json file
+
+        JsonController controller = new JsonController();
+
+        ArrayList<Customer> customers = JsonController.deserializeACustomerList("Customer.json");
+
+        customers.remove(0);
+
+        controller.serializeAList(customers);
+
+    }
 }
