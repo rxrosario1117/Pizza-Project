@@ -51,7 +51,22 @@ public class JsonController <T>{
         }
     }
 
-    public ArrayList<T> deserializeAList(String file) throws IOException {
+    public static ArrayList<Order> deserializeAnOrderList(String file) throws IOException {
+        // get name/location of json file from the user and store it in a string - DONE IN MAIN
+
+        // convert json file to a string to be deserialized
+//        String readInJson = getFileName();
+//        String readInJson = convertOrderJsonIntoString(file);
+        String readInJson = convertJsonIntoString(file);
+
+//        we must evaluate the type of the list of orders using a typeToken before we use Gson().fromJson
+        Type orderListType = new TypeToken<ArrayList<Order>>(){}.getType();
+
+//        returns deserialized object
+        return new Gson().fromJson(readInJson, orderListType);
+    }
+
+    public static ArrayList<Customer> deserializeACustomerList(String file) throws IOException {
         // get name/location of json file from the user and store it in a string - DONE IN MAIN
 
         // convert json file to a string to be deserialized
@@ -59,15 +74,27 @@ public class JsonController <T>{
         String readInJson = convertJsonIntoString(file);
 
 //        we must evaluate the type of the list of orders using a typeToken before we use Gson().fromJson
-        Type genericListType = new TypeToken<ArrayList<T>>(){}.getType();
+        Type customerListType = new TypeToken<ArrayList<Customer>>(){}.getType();
 
 //        returns deserialized object
-        return new Gson().fromJson(readInJson, genericListType);
+        return new Gson().fromJson(readInJson, customerListType);
+    }
+
+    public static ArrayList<Staff> deserializeAStaffList(String file) throws IOException {
+        // get name/location of json file from the user and store it in a string - DONE IN MAIN
+
+        // convert json file to a string to be deserialized
+//        String readInJson = getFileName();
+        String readInJson = convertJsonIntoString(file);
+
+//        we must evaluate the type of the list of orders using a typeToken before we use Gson().fromJson
+        Type staffListType = new TypeToken<ArrayList<Staff>>(){}.getType();
+
+//        returns deserialized object
+        return new Gson().fromJson(readInJson, staffListType);
     }
 
     public static String convertJsonIntoString(String file) throws IOException {
-
-
 //        If the file doesn't exist then create it and add the VERY important [] (to avoid a nullPointerException)
         File newFile = new File(file);
         if(newFile.createNewFile()) {
@@ -98,6 +125,21 @@ public class JsonController <T>{
         return "";
     }
 
+    //      Deserialize does not work with generics
+    public ArrayList<T> deserializeAList(String file) throws IOException {
+        // get name/location of json file from the user and store it in a string - DONE IN MAIN
+
+        // convert json file to a string to be deserialized
+//        String readInJson = getFileName();
+        String readInJson = convertJsonIntoString(file);
+
+//        we must evaluate the type of the list of orders using a typeToken before we use Gson().fromJson
+        Type genericListType = new TypeToken<ArrayList<T>>(){}.getType();
+
+//        returns deserialized object
+        return new Gson().fromJson(readInJson, genericListType);
+    }
+
 ////      w/o generics
 //    public static void serializeAnOrderList(Order order) throws IOException {
 //        Gson gson = new Gson();
@@ -119,21 +161,6 @@ public class JsonController <T>{
 //        }
 //    }
 //
-//    // works with getFileName()
-////    public static ArrayList<Customer> deserializeACustomerList() throws IOException {
-//    public static ArrayList<Order> deserializeAnOrderList(String file) throws IOException {
-//        // get name/location of json file from the user and store it in a string - DONE IN MAIN
-//
-//        // convert json file to a string to be deserialized
-////        String readInJson = getFileName();
-//        String readInJson = convertOrderJsonIntoString(file);
-//
-////        we must evaluate the type of the list of orders using a typeToken before we use Gson().fromJson
-//        Type orderListType = new TypeToken<ArrayList<Order>>(){}.getType();
-//
-////        returns deserialized object
-//        return new Gson().fromJson(readInJson, orderListType);
-//    }
 //
 //    public static void serializeACustomerList(Customer customer) throws IOException {
 //        Gson gson = new Gson();
@@ -155,21 +182,6 @@ public class JsonController <T>{
 //        }
 //    }
 //
-//    // works with getFileName()
-////    public static ArrayList<Customer> deserializeACustomerList() throws IOException {
-//    public static ArrayList<Customer> deserializeACustomerList(String file) throws IOException {
-//        // get name/location of json file from the user and store it in a string - DONE IN MAIN
-//
-//        // convert json file to a string to be deserialized
-////        String readInJson = getFileName();
-//        String readInJson = convertCustJsonIntoString(file);
-//
-////        we must evaluate the type of the list of orders using a typeToken before we use Gson().fromJson
-//        Type customerListType = new TypeToken<ArrayList<Customer>>(){}.getType();
-//
-////        returns deserialized object
-//        return new Gson().fromJson(readInJson, customerListType);
-//    }
 //
 //    public static void serializeAStaffList(Staff staff) throws IOException {
 //        Gson gson = new Gson();
@@ -191,21 +203,6 @@ public class JsonController <T>{
 //        }
 //    }
 //
-//    // works with getFileName()
-////    public static ArrayList<Customer> deserializeACustomerList() throws IOException {
-//    public static ArrayList<Staff> deserializeAStaffList(String file) throws IOException {
-//        // get name/location of json file from the user and store it in a string - DONE IN MAIN
-//
-//        // convert json file to a string to be deserialized
-////        String readInJson = getFileName();
-//        String readInJson = convertStaffJsonIntoString(file);
-//
-////        we must evaluate the type of the list of orders using a typeToken before we use Gson().fromJson
-//        Type staffListType = new TypeToken<ArrayList<Staff>>(){}.getType();
-//
-////        returns deserialized object
-//        return new Gson().fromJson(readInJson, staffListType);
-//    }
 //
 //    // getFileName might be redundant IF we as the developers are the ones controlling the json file name/location
 ////    public static String getFileName() throws IOException {

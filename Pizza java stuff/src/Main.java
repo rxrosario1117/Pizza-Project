@@ -20,7 +20,12 @@ public class Main {
     public static void main(String[] args) throws IOException {
 //        Creates a new staff, order, customer and adds them to their respective json files
 //        If the json file doesn't exist, it is created then written to
-        genericTest();
+        genericSerializeTest();
+
+//        Deserialize works with individual deserialize methods in JsonController
+        orderDeserializeTest();
+        customerDeserializeTest();
+        staffDeserializeTest();
     }
 
     public static void orderCreationTest() throws IOException {
@@ -112,7 +117,7 @@ public class Main {
         Staff.createNewManager("Melinda", "Rosario", "!@#$QWER", "45613");
     }
 
-    public static void genericTest() throws IOException {
+    public static void genericSerializeTest() throws IOException {
         JsonController j = new JsonController();
 
         Staff.createNewStaff("Ray", "Rosario", "1234qwer", "55555");
@@ -131,6 +136,34 @@ public class Main {
 
         Order.createNewOrder(new Customer("Nobyl", "Rosario", address, "789456", creditCard), pizza2, sides2 , drink2, 22.22f, false);
     }
+
+    public static void orderDeserializeTest() throws IOException {
+        String file = "Order.json";
+
+        ArrayList<Order> orderList = new ArrayList<>();
+        orderList = JsonController.deserializeAnOrderList(file);
+
+        System.out.println(orderList.get(0).getCustomerPhoneNumber());
+    }
+
+    public static void customerDeserializeTest() throws IOException {
+        String file = "Customer.json";
+
+        ArrayList<Customer> customerList = new ArrayList<>();
+        customerList = JsonController.deserializeACustomerList(file);
+
+        System.out.println(customerList.get(0).getPhoneNumber());
+    }
+
+    public static void staffDeserializeTest() throws IOException {
+        String file = "Staff.json";
+
+        ArrayList<Staff> staffList = new ArrayList<>();
+        staffList = JsonController.deserializeAStaffList(file);
+
+        System.out.println(staffList.get(0).getEmployeeType());
+    }
+
 
 
 }
