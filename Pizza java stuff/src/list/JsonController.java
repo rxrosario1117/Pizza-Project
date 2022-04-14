@@ -3,6 +3,8 @@ package list;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import customer_info.Customer;
+import customer_info.customerAddress;
+import customer_info.customerCreditCard;
 import management.Manager;
 import management.Order;
 import management.Staff;
@@ -49,6 +51,21 @@ public class JsonController <T>{
         }catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    //      Deserialize does not work with generics
+    public ArrayList<T> deserializeAList(String file) throws IOException {
+        // get name/location of json file from the user and store it in a string - DONE IN MAIN
+
+        // convert json file to a string to be deserialized
+//        String readInJson = getFileName();
+        String readInJson = convertJsonIntoString(file);
+
+//        we must evaluate the type of the list of orders using a typeToken before we use Gson().fromJson
+        Type genericListType = new TypeToken<ArrayList<T>>(){}.getType();
+
+//        returns deserialized object
+        return new Gson().fromJson(readInJson, genericListType);
     }
 
     public static ArrayList<Order> deserializeAnOrderList(String file) throws IOException {
@@ -123,21 +140,6 @@ public class JsonController <T>{
             return "Staff.json";
         }
         return "";
-    }
-
-    //      Deserialize does not work with generics
-    public ArrayList<T> deserializeAList(String file) throws IOException {
-        // get name/location of json file from the user and store it in a string - DONE IN MAIN
-
-        // convert json file to a string to be deserialized
-//        String readInJson = getFileName();
-        String readInJson = convertJsonIntoString(file);
-
-//        we must evaluate the type of the list of orders using a typeToken before we use Gson().fromJson
-        Type genericListType = new TypeToken<ArrayList<T>>(){}.getType();
-
-//        returns deserialized object
-        return new Gson().fromJson(readInJson, genericListType);
     }
 
 ////      w/o generics
@@ -275,6 +277,5 @@ public class JsonController <T>{
 //
 //        return new String(Files.readAllBytes(Paths.get(file)));
 //    }
-
 
 }
