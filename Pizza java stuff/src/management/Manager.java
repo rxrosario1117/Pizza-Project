@@ -1,7 +1,5 @@
 package management;
 
-import static list.ListController.customerList;
-
 public class Manager extends Staff{
 
     // constructor to call parent constructor (management.Staff) with super
