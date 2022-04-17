@@ -103,11 +103,11 @@ public class Order {
         this.orderID = orderID;
     }
 
-    public static int getNextOrderID() {
+    public int getNextOrderID() {
         return nextOrderID;
     }
 
-    public static void setNextOrderID(int nextOrderID) {
+    public void setNextOrderID(int nextOrderID) {
         Order.nextOrderID = nextOrderID;
     }
 
@@ -115,15 +115,15 @@ public class Order {
         return true;
     }
 
-    public static boolean confirmOrder(){
+    public boolean confirmOrder(){
         return true;
     }
 
-    public static String selectPaymentMethod(String userSelection){
+    public String selectPaymentMethod(String userSelection){
         return userSelection;
     }
 
-    public static void generateReceipt(){
+    public void generateReceipt(){
         // display all order items and price
         // put a place to sign for credit card users
     }
@@ -140,6 +140,22 @@ public class Order {
 
         return true;
     }
+
+    public void addPizza(String pizzaType, String size) {
+        pizzaList.add(new Pizza(pizzaType, size));
+    }
+
+    public void addSide(String sideSelection) {
+        sideList.add(new Side(sideSelection));
+
+    }
+
+    public void addDrink(String drink, String size) {
+        drinkList.add(new Drink(drink, size));
+    }
+
+
+
 
 ////    with generics
 //    public static boolean createNewOrder(Customer customer, Pizza pizza, Side side, Drink drink, float price , boolean orderType) throws IOException {
