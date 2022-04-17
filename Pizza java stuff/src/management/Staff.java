@@ -2,6 +2,7 @@ package management;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import customer_info.Customer;
 import list.JsonController;
 
 import java.io.IOException;
@@ -98,10 +99,15 @@ public class Staff {
 //    }
 
     //    check username and password are valid
-    public static boolean loginVerification(String userName, String password){
+    public static boolean loginVerification(String employeeID, String password){
 
-//        temp
-        return true;
+        for (Staff s : staffList) {
+            if(s.employeeID.equals(employeeID) && s.password.equals(password)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 //    checks for existing customer
@@ -143,54 +149,71 @@ public class Staff {
 
 //    with generics
 public static boolean createNewStaff(String firstName, String lastName, String password, String employeeID) throws IOException {
-    JsonController controller = new JsonController();
 
-        // Use list.JsonController class to make updates to the class list to be used in the json file
+    for (Staff s : JsonController.staffList) {
+        if (s.employeeID.equals(employeeID)) {
+            return false;
+        }
+    }
+
     Staff staff = new Staff(firstName, lastName, password, employeeID);
 
-//        re-writes the json file to add the new customer
-    controller.serializeAList(staff);
+    staffList.add(staff);
+
+    serializeAStaffList(staff);
 
     return true;
 }
 
     public static boolean createNewManager(String firstName, String lastName, String password, String employeeID) throws IOException {
-        JsonController controller = new JsonController();
 
-        // Use list.JsonController class to make updates to the class list to be used in the json file
+
+        for (Staff s : JsonController.staffList) {
+            if (s.employeeID.equals(employeeID)) {
+                return false;
+            }
+        }
+
         Staff staff = new Manager(firstName, lastName, password, employeeID);
 
-//        re-writes the json file to add the new customer
-        controller.serializeAList(staff);
+        staffList.add(staff);
+
+        serializeAStaffList(staff);
 
         return true;
     }
 
-    public static boolean removeStaff(String employeeID){
+    public static boolean removeStaff(String employeeID) throws IOException {
 //        Use list.JsonController.staffList to make updates to the class list to be used in the json file
 
-//        searches for the customer by phone number and removes them
-        for(int i = 0; i < staffList.size(); i++){
+        boolean temp = false;
 
-            if (staffList.get(i).getEmployeeID().equals(employeeID)){
-                staffList.remove(i);
+        for (Staff s : JsonController.staffList) {
+            if (s.employeeType.equals(employeeID)) {
+                JsonController.customerList.remove(s);
+                temp = true;
             }
         }
 
-        return true;
+        JsonController.serializeAStaffList();
+
+        return temp;
     }
 
-    public static boolean removeManager(String employeeID){
+    public static boolean removeManager(String employeeID) throws IOException {
 //        Use list.JsonController.staffList to make updates to the class list to be used in the json file
 
-//        searches for the customer by phone number and removes them
-        for(int i = 0; i < staffList.size(); i++){
+        boolean temp = false;
 
-            if (staffList.get(i).getEmployeeID().equals(employeeID)){
-                staffList.remove(i);
+        for (Staff s : JsonController.staffList) {
+            if (s.employeeType.equals(employeeID)) {
+                JsonController.customerList.remove(s);
+                temp = true;
             }
         }
 
-        return true;
+        JsonController.serializeAStaffList();
+
+        return temp;
     }
 }

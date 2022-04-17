@@ -1,6 +1,7 @@
 package customer_info;
 
 import list.JsonController;
+import list.JsonController.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -66,39 +67,39 @@ public class Customer {
         this.creditCard = creditCard;
     }
 
-////    w/o generics
-//    public static boolean createNewCustomer(String firstName, String lastName, customerAddress address, String phoneNumber, customerCreditCard creditCard) throws IOException {
-//
-//        Customer customer = new Customer(firstName, lastName, address, phoneNumber, creditCard);
-//
-////        re-writes the json file to add the new customer
-//        JsonController.serializeACustomerList(customer);
-//
-//        return true;
-//    }
-
 //    with generics
     public static boolean createNewCustomer(String firstName, String lastName, customerAddress address, String phoneNumber, customerCreditCard creditCard) throws IOException {
-        JsonController controller = new JsonController();
+
+        for (Customer c : JsonController.customerList) {
+            if (c.phoneNumber.equals(phoneNumber)) {
+                return false;
+            }
+        }
 
         Customer customer = new Customer(firstName, lastName, address, phoneNumber, creditCard);
 
 //        re-writes the json file to add the new customer
-        controller.serializeAList(customer);
+        JsonController.customerList.add(customer);
+
+        JsonController.serializeACustomerList(customer);
 
         return true;
     }
 
-    public static void removeCustomer(String phoneNumber) throws IOException {
+    public static boolean removeCustomer(String phoneNumber) throws IOException {
 //        Use list.JsonController.customerList to make updates to the class list to be used in the json file
 
-        JsonController controller = new JsonController();
+        boolean temp = false;
 
-        ArrayList<Customer> customers = JsonController.deserializeACustomerList("Customer.json");
+        for (Customer c : JsonController.customerList) {
+            if (c.phoneNumber.equals(phoneNumber)) {
+                JsonController.customerList.remove(c);
+                temp = true;
+            }
+        }
 
-        customers.remove(0);
+        JsonController.serializeACustomerList();
 
-        controller.serializeAList(customers);
-
+        return temp;
     }
 }

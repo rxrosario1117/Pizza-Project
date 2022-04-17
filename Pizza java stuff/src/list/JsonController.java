@@ -20,7 +20,7 @@ import java.util.List;
 
 public class JsonController <T>{
     public static List<Order> orderList = new ArrayList<>();
-//    public static List<Customer> customerList = new ArrayList<>();
+    public static List<Customer> customerList = new ArrayList<>();
     public static List<Staff> staffList = new ArrayList<>();
     public static String orderJSON;
     public static String customerJSON;
@@ -32,43 +32,43 @@ public class JsonController <T>{
 
     }
 
-////    test with generics - WORKS
-//    public void serializeAList(T object) throws IOException {
-//        String jsonToUpdate = jsonFileToUpdate(object);
-//
-//        Gson gson = new Gson();
-//
-//        List<T> updatedListToBeSer;
-//        updatedListToBeSer = deserializeAList(jsonToUpdate);
-//
-//        updatedListToBeSer.add(object);
-//
-//        String JSON = gson.toJson(updatedListToBeSer);
-//
-//        try{
-//            FileWriter file = new FileWriter(jsonToUpdate);
-//            file.write(JSON);
-//            file.flush();
-//
-//        }catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    //      Deserialize does not work with generics
-//    public ArrayList<T> deserializeAList(String file) throws IOException {
-//        // get name/location of json file from the user and store it in a string - DONE IN MAIN
-//
-//        // convert json file to a string to be deserialized
-////        String readInJson = getFileName();
-//        String readInJson = convertJsonIntoString(file);
-//
-////        we must evaluate the type of the list of orders using a typeToken before we use Gson().fromJson
-//        Type genericListType = new TypeToken<ArrayList<T>>(){}.getType();
-//
-////        returns deserialized object
-//        return new Gson().fromJson(readInJson, genericListType);
-//    }
+//    test with generics - WORKS
+    public void serializeAList(T object) throws IOException {
+        String jsonToUpdate = jsonFileToUpdate(object);
+
+        Gson gson = new Gson();
+
+        List<T> updatedListToBeSer;
+        updatedListToBeSer = deserializeAList(jsonToUpdate);
+
+        updatedListToBeSer.add(object);
+
+        String JSON = gson.toJson(updatedListToBeSer);
+
+        try{
+            FileWriter file = new FileWriter(jsonToUpdate);
+            file.write(JSON);
+            file.flush();
+
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //      Deserialize does not work with generics
+    public ArrayList<T> deserializeAList(String file) throws IOException {
+        // get name/location of json file from the user and store it in a string - DONE IN MAIN
+
+        // convert json file to a string to be deserialized
+//        String readInJson = getFileName();
+        String readInJson = convertJsonIntoString(file);
+
+//        we must evaluate the type of the list of orders using a typeToken before we use Gson().fromJson
+        Type genericListType = new TypeToken<ArrayList<T>>(){}.getType();
+
+//        returns deserialized object
+        return new Gson().fromJson(readInJson, genericListType);
+    }
 
     public static ArrayList<Order> deserializeAnOrderList(String file) throws IOException {
         // get name/location of json file from the user and store it in a string - DONE IN MAIN
@@ -85,8 +85,11 @@ public class JsonController <T>{
         return new Gson().fromJson(readInJson, orderListType);
     }
 
+//    deserializes Customer.json and updates the class list
     public static ArrayList<Customer> deserializeACustomerList(String file) throws IOException {
         // get name/location of json file from the user and store it in a string - DONE IN MAIN
+
+        Gson gson = new Gson();
 
         // convert json file to a string to be deserialized
 //        String readInJson = getFileName();
@@ -95,9 +98,10 @@ public class JsonController <T>{
 //        we must evaluate the type of the list of orders using a typeToken before we use Gson().fromJson
         Type customerListType = new TypeToken<ArrayList<Customer>>(){}.getType();
 
-//        returns deserialized object
-        return new Gson().fromJson(readInJson, customerListType);
-            }
+        customerList = gson.fromJson(readInJson, customerListType);
+
+        return gson.fromJson(readInJson, customerListType);
+    }
 
     public static ArrayList<Staff> deserializeAStaffList(String file) throws IOException {
         // get name/location of json file from the user and store it in a string - DONE IN MAIN
@@ -165,7 +169,6 @@ public class JsonController <T>{
         }
     }
 
-
     public static void serializeACustomerList(Customer customer) throws IOException {
         Gson gson = new Gson();
 
@@ -186,6 +189,20 @@ public class JsonController <T>{
         }
     }
 
+    public static void serializeACustomerList() throws IOException {
+        Gson gson = new Gson();
+
+        String custJSON = gson.toJson(customerList);
+
+        try{
+            FileWriter file = new FileWriter("Customer.json");
+            file.write(custJSON);
+            file.flush();
+
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void serializeAStaffList(Staff staff) throws IOException {
         Gson gson = new Gson();
@@ -196,6 +213,21 @@ public class JsonController <T>{
         updatedListToBeSerialized.add(staff);
 
         String staffJSON = gson.toJson(updatedListToBeSerialized);
+
+        try{
+            FileWriter file = new FileWriter("Staff.json");
+            file.write(staffJSON);
+            file.flush();
+
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void serializeAStaffList() throws IOException {
+        Gson gson = new Gson();
+
+        String staffJSON = gson.toJson(staffList);
 
         try{
             FileWriter file = new FileWriter("Staff.json");

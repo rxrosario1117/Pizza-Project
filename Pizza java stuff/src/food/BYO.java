@@ -15,7 +15,6 @@ public class BYO extends Pizza{
         this.cheese = cheese;
         this.toppings = toppings;
         setPrice(getPrice() + calcToppingPrice());
-
     }
 
     public float calcToppingPrice(){

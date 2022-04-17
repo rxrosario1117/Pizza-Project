@@ -42,7 +42,7 @@ public class Main {
         toppings.add("pepperoni");
         toppings.add("sausage");
         toppings.add("veggies");
-        BYO pizza = new BYO("stuffed", "marinara", "mozzarella", toppings, "small");
+        Pizza pizza = new BYO("stuffed", "marinara", "mozzarella", toppings, "small");
         Side side = new Side("wings");
         Drink drink = new Drink("coke", "medium");
 
@@ -57,8 +57,10 @@ public class Main {
         Drink drink2 = new Drink("sprite", "large");
 
 
-        Order.createNewOrder(c1, pizza, side, drink, 11.11f, true);
-        Order.createNewOrder(c2, pizza2, sides2 , drink2, 22.22f, false);
+        Order.createNewOrder(c1,true);
+
+
+        Order.createNewOrder(c2, false);
     }
 
     public static void customerCreationTest() throws IOException {
@@ -136,7 +138,7 @@ public class Main {
         Side sides2 = new Side("boneless wings");
         Drink drink2 = new Drink("sprite", "large");
 
-        Order.createNewOrder(new Customer("Nobyl", "Rosario", address, "789456", creditCard), pizza2, sides2 , drink2, 22.22f, false);
+//        Order.createNewOrder(new Customer("Nobyl", "Rosario", address, "789456", creditCard), pizza2, sides2 , drink2, 22.22f, false);
     }
 
     public static void orderDeserializeTest() throws IOException {

@@ -18,27 +18,22 @@ public class Order {
     Customer customer;
     String customerPhoneNumber;
     Pizza pizza;
-    Side side;
-    Drink drink;
-//    List<Pizza> pizzaList = new ArrayList<>();
-//    List<Side> sideList = new ArrayList<>();
-//    List<Drink> drinkList = new ArrayList<>();
-    float price;
-    // True = pickup | False = deliver
-     Boolean orderType;
+
+    List<Pizza> pizzaList = new ArrayList<>();
+    List<Side> sideList = new ArrayList<>();
+    List<Drink> drinkList = new ArrayList<>();
+    float price = 0f;
+//    True = pickup | False = deliver
+    Boolean orderType;
     int orderID;
     // static order counter | updated in the constructor for every new order
     public static int nextOrderID = 1;
 
     // management.Order constructor
-    public Order(Customer customer, Pizza pizza, Side side, Drink drink, float price , Boolean orderType) {
+    public Order(Customer customer, Boolean orderType) {
         this.customer = customer;
         this.customerPhoneNumber = customer.getPhoneNumber();
         this.orderType = orderType;
-        this.pizza = pizza;
-        this.side = side;
-        this.drink = drink;
-        this.price = price;
         orderID = nextOrderID;
         nextOrderID++;
     }
@@ -59,28 +54,29 @@ public class Order {
         this.customerPhoneNumber = customerPhoneNumber;
     }
 
-    public Pizza getPizza() {
-        return pizza;
+    public List<Pizza> getPizzaList() {
+        return pizzaList;
     }
 
-    public void setPizza(Pizza pizza) {
-        this.pizza = pizza;
+    public void setPizzaList(Pizza pizza) {
+        pizzaList.add(pizza);
+        price += pizza.getPrice();
     }
 
-    public Side getSide() {
-        return side;
+    public List<Side> getSideList() {
+        return sideList;
     }
 
-    public void setSide(Side side) {
-        this.side = side;
+    public void setSideList(Side side) {
+        sideList.add(side);
     }
 
-    public Drink getDrink() {
-        return drink;
+    public List<Drink> getDrinkList() {
+        return drinkList;
     }
 
-    public void setDrink(Drink drink) {
-        this.drink = drink;
+    public void setDrinkList(Drink drink) {
+        drinkList.add(drink);
     }
 
     public float getPrice() {
@@ -115,39 +111,7 @@ public class Order {
         Order.nextOrderID = nextOrderID;
     }
 
-//    //    serialize a list of Orders and return a String of the json text
-//    public static void serializeAList() {
-//
-////        GsonBuilder() will set the string to print nicely in the console
-////        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-//        Gson gson = new Gson();
-//
-////        list.JsonController.orderList is converted to json text
-//        orderJSON = gson.toJson(orderList);
-//
-////        create new Json file
-//        try{
-//            FileWriter file = new FileWriter("Order.json");
-//            file.write(orderJSON);
-//            file.flush();
-//
-//        }catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    //    deserialize a list of Orders and return the management.Order list
-//    public static List<Order> deserializeAList() {
-//
-////        we must evaluate the type of the list of orders using a typeToken before we use Gson().fromJson
-//        Type orderListType = new TypeToken<ArrayList< Order >>(){}.getType();
-//
-////        returns deserialized / hydrated list
-//        return new Gson().fromJson(orderJSON, orderListType);
-//
-//    }
-
-    public static boolean addToCart(){
+    public boolean addToCart( boolean side, boolean drink) {
         return true;
     }
 
@@ -164,33 +128,35 @@ public class Order {
         // put a place to sign for credit card users
     }
 
-////    w/o generics
-//    public static boolean createNewOrder(Customer customer, Pizza pizza, Side side, Drink drink, float price , boolean orderType) throws IOException {
-//
-//        Order order = new Order(customer, pizza, side, drink, price , orderType);
-//
-////        re-writes the json file to add the new customer
-//        JsonController.serializeAnOrderList(order);
-//
-//        return true;
-//    }
+//    w/o generics
+    public static boolean createNewOrder(Customer customer, boolean orderType) throws IOException {
 
-//    with generics
-    public static boolean createNewOrder(Customer customer, Pizza pizza, Side side, Drink drink, float price , boolean orderType) throws IOException {
-        JsonController controller = new JsonController();
-
-        Order order = new Order(customer, pizza, side, drink, price , orderType);
+        Order order = new Order(customer, orderType);
 
 //        re-writes the json file to add the new customer
-        controller.serializeAList(order);
+        JsonController.orderList.add(order);
+
+        JsonController.serializeAnOrderList(order);
 
         return true;
     }
 
+////    with generics
+//    public static boolean createNewOrder(Customer customer, Pizza pizza, Side side, Drink drink, float price , boolean orderType) throws IOException {
+//        JsonController controller = new JsonController();
+//
+//        Order order = new Order(customer, pizza, side, drink, price , orderType);
+//
+////        re-writes the json file to add the new customer
+//        controller.serializeAList(order);
+//
+//        return true;
+//    }
+
     public void calculatePrice(){
 //        calculate total price for the order
 
-        price += pizza.getPrice() + side.getPrice() + drink.getPrice();
+
 
     }
 }
